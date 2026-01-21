@@ -84,14 +84,18 @@ export interface LabFrontmatter {
  */
 export interface WisdomFrontmatter {
   title: string; // Nome do conceito (ex: "Titiksha")
+  date: string; // Data de criação
   
   // Categorização
   category: WisdomCategory;
   tags: string[];
   
   // Conteúdo da definição
-  shortDefinition: string; // Para hover card (1 linha)
+  definition: string; // Definição completa (expandida do shortDefinition)
+  shortDefinition?: string; // Para hover card (1 linha) - opcional para retrocompatibilidade
+  pronunciation?: string; // Pronúncia IPA ou simplificada
   etymology?: string; // Etimologia se aplicável
+  synonyms?: string[]; // Sinônimos e termos relacionados
   
   // Relações
   relatedDiary?: string[]; // Posts que usam este conceito
