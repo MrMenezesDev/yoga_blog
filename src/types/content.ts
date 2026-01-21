@@ -27,6 +27,16 @@ export interface DiaryFrontmatter {
   excerpt: string;
   tags: string[];
   
+  // NEW: Categoria semântica (do Canvas Design System)
+  category?: string; // 'Filosofia', 'Prática', 'Insight', etc
+  
+  // NEW: Termo sânscrito principal
+  sanskrit?: string; // Ex: "Nirodha"
+  sanskritMeaning?: string; // Ex: "Contenção Potente"
+  
+  // NEW: Número de comentários (futuro Giscus)
+  comments?: number;
+  
   // Conceitos linkados que aparecem no post (hover cards)
   relatedConcepts?: string[]; // slugs da Sabedoria
   
@@ -52,6 +62,7 @@ export interface LabFrontmatter {
   // Metadata
   type: 'ritual' | 'estudo' | 'pratica'; // Tipo de item
   description: string; // Descrição curta para o card
+  excerpt?: string; // NEW: Resumo para preview (opcional)
   
   // Timing
   duration?: string; // Ex: "21 dias", "3 meses"

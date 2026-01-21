@@ -28,6 +28,20 @@
   --color-terracota-800: #6D2F10;
   --color-terracota-900: #4F210B;
   
+  /* Semantic Category Colors (from Canvas Design System) */
+  --color-category-filosofia: #9333ea;
+  --color-category-filosofia-light: #f3e8ff;
+  --color-category-pratica: #ea580c;
+  --color-category-pratica-light: #ffedd5;
+  --color-category-insight: #16a34a;
+  --color-category-insight-light: #dcfce7;
+  --color-category-estudo: #0284c7;
+  --color-category-estudo-light: #e0f2fe;
+  --color-category-discussao: #7c3aed;
+  --color-category-discussao-light: #ede9fe;
+  --color-category-mandala: #dc2626;
+  --color-category-mandala-light: #fee2e2;
+  
   /* Paleta de Categorias Acadêmicas */
   --color-filosofia: #9333ea; /* Purple-600 */
   --color-filosofia-light: #f3e8ff; /* Purple-50 */

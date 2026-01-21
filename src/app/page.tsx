@@ -1,133 +1,169 @@
 import Link from 'next/link';
 import { getAllDiaryPosts, getLabPostsByStatus } from '@/lib/mdx';
-import { Calendar, ArrowRight, Flame, BookOpen } from 'lucide-react';
+import { Calendar, ArrowRight, Flame, BookOpen, Target, Sparkles } from 'lucide-react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import TopBar from '@/components/TopBar';
+import MandalaWidget from '@/components/MandalaWidget';
+import RichPostCard from '@/components/RichPostCard';
 
 export default async function Home() {
-  const diaryPosts = getAllDiaryPosts().slice(0, 3);
-  const doingPosts = getLabPostsByStatus('doing').slice(0, 3); // Top 3 em prática
+  const diaryPosts = getAllDiaryPosts().slice(0, 2);
+  const doingPosts = getLabPostsByStatus('doing').slice(0, 3);
 
   return (
-    <div className="min-h-screen pb-16">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-20 space-y-16 md:space-y-20">
-        
-        {/* Hero Section - Editorial Style */}
-        <header className="text-center max-w-3xl mx-auto py-8">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
-            Bem-vindo à <span style={{color: 'var(--color-terracota-600)'}}>Sangha</span> Pessoal
-          </h1>
-          <p className="text-lg md:text-xl leading-loose" style={{color: 'var(--foreground)', fontFamily: 'var(--font-serif)'}}>
-            Este é o registro digital da minha jornada de autoconhecimento.  
-            Aqui, Yoga não é apenas exercício, mas uma ferramenta de engenharia interior 
-            para lapidar a vontade e compreender a realidade.
-          </p>
-        </header>
-
-        {/* Recent Diary Posts */}
-        <section>
-          <div className="mb-8 pb-4 border-b-2" style={{borderColor: 'var(--color-terracota-300)'}}>
-            <h2 className="text-3xl md:text-4xl font-bold flex items-center gap-3" style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
-              <BookOpen className="w-7 h-7 md:w-8 md:h-8" style={{color: 'var(--color-terracota-600)'}} />
-              Últimas Reflexões do Diário
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {diaryPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/diario/${post.slug}`}
-                className="group block"
-              >
-                <article className="bg-white p-6 md:p-8 border-l-4 transition-all hover:translate-x-1"
-                  style={{
-                    borderColor: '#2563eb',
-                    boxShadow: 'var(--shadow-editorial-md)'
-                  }}>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:underline transition-colors" style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
-                    {post.frontmatter.title}
-                  </h3>
-                  <time className="text-sm mb-3 block" style={{color: '#78716c', fontFamily: 'var(--font-sans)', fontWeight: 300}}>
-                    {format(new Date(post.frontmatter.date), "d 'de' MMMM", {
-                      locale: ptBR,
-                    })}
-                  </time>
-                  <p className="text-base leading-relaxed" style={{color: 'var(--foreground)', fontFamily: 'var(--font-serif)'}}>
-                    {post.frontmatter.excerpt}
-                  </p>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Lab Highlights - Editorial */}
-        <section>
-          <div className="mb-8 pb-4 border-b-2" style={{borderColor: 'var(--color-terracota-300)'}}>
-            <h2 className="text-3xl md:text-4xl font-bold flex items-center gap-3" style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
-              <Flame className="w-7 h-7 md:w-8 md:h-8" style={{color: 'var(--color-terracota-600)'}} />
-              Destaques do Laboratório
-            </h2>
-          </div>
+    <>
+      <TopBar />
+      <div className="min-h-screen pb-16" style={{ backgroundColor: '#f5f5f4' }}>
+        <div className="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-20 space-y-16 md:space-y-20">
           
-          {doingPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              {doingPosts.map((post) => (
-                <Link
+          {/* Hero Section - Editorial Typography First */}
+          <header className="text-center max-w-4xl mx-auto py-8">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight" style={{color: '#2D2420', fontFamily: 'var(--font-serif)'}}>
+              Jardim Digital de <span style={{color: '#C05621'}}>Sangha</span>
+            </h1>
+            <p className="text-lg md:text-xl leading-loose text-stone-700" style={{fontFamily: 'var(--font-serif)'}}>
+              Este é o registro vivo da minha jornada de autoconhecimento através do Yoga e da Filosofia Indiana.  
+              Aqui, cada post é uma escavação arqueológica da consciência — um laboratório onde teoria e vida colidem.
+            </p>
+          </header>
+
+          {/* Mandala Widget + Recent Posts Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-1">
+              <MandalaWidget />
+            </div>
+            <div className="md:col-span-2">
+              <div className="bg-white p-6 border-l-4 border-stone-500" style={{ boxShadow: 'var(--shadow-editorial-md)' }}>
+                <h3 className="text-xl font-bold mb-4" style={{ fontFamily: 'var(--font-serif)', color: '#2D2420' }}>
+                  🎯 Foco Atual (Sadhana)
+                </h3>
+                <div className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-sans)', color: '#57534e' }}>
+                  <p><strong>Período:</strong> 05 Jan - 19 Mar 2026 (74 dias)</p>
+                  <p><strong>Meta:</strong> Cristalizar a vontade através da disciplina diária</p>
+                  <p><strong>Práticas:</strong> Surya Namaskar, Likhita Japa, Estudo da Gītā</p>
+                  <p><strong>Estudo Paralelo:</strong> Yoga Sutras de Patañjali (Triangulação com 3 versões)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Diary Posts - Rich Cards */}
+          <section>
+            <div className="mb-8 pb-4 border-b-2 border-stone-300">
+              <h2 className="text-4xl md:text-5xl font-bold flex items-center gap-3" style={{color: '#2D2420', fontFamily: 'var(--font-serif)'}}>
+                <BookOpen className="w-8 h-8 md:w-10 md:h-10 text-stone-700" />
+                Diário de Jornada
+              </h2>
+              <p className="text-base mt-2 text-stone-600" style={{ fontFamily: 'var(--font-serif)' }}>
+                Reflexões diárias sobre a prática, insights filosóficos e o processo de transformação interior
+              </p>
+            </div>
+            <div className="space-y-8 md:space-y-10">
+              {diaryPosts.map((post) => (
+                <RichPostCard
                   key={post.slug}
-                  href={`/laboratorio/${post.slug}`}
-                  className="group block"
-                >
-                  <article className="bg-white rounded-xl md:rounded-2xl border-2 transition-all p-4 md:p-6 h-full"
-                    style={{
-                      borderColor: 'var(--color-saffron-200)',
-                      boxShadow: 'var(--shadow-soft)'
-                    }}>
-                    <div className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-3"
-                      style={{
-                        backgroundColor: 'var(--color-saffron-100)',
-                        color: 'var(--color-saffron-700)'
-                      }}>
-                      EM PRÁTICA
-                    </div>
-                    <h3 className="text-base md:text-lg font-semibold mb-2 group-hover:underline" style={{color: 'var(--charcoal)'}}>
-                      {post.frontmatter.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 line-clamp-2 mb-3">
-                      {post.frontmatter.description}
-                    </p>
-                    {post.frontmatter.deadline && (
-                      <div className="flex items-center gap-2 text-sm" style={{color: 'var(--color-terracota-600)', fontFamily: 'var(--font-sans)'}}>
-                        <Calendar className="w-4 h-4" />
-                        <span>{post.frontmatter.daysRemaining} dias restantes</span>
-                      </div>
-                    )}
-                  </article>
-                </Link>
+                  slug={`diario/${post.slug}`}
+                  title={post.frontmatter.title}
+                  date={format(new Date(post.frontmatter.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                  category={post.frontmatter.category || 'Reflexão'}
+                  excerpt={post.frontmatter.excerpt || ''}
+                  sanskrit={post.frontmatter.sanskrit}
+                  sanskritMeaning={post.frontmatter.sanskritMeaning}
+                  comments={post.frontmatter.comments || 0}
+                />
               ))}
             </div>
-          ) : (
-            <p className="text-center py-8 text-lg italic" style={{color: '#78716c', fontFamily: 'var(--font-serif)'}}>
-              Nenhum estudo em prática no momento.
-            </p>
-          )}
-          
-          <div className="text-center mt-8">
-            <Link
-              href="/laboratorio"
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium transition-all border-2 hover:translate-y-[-2px]"
-              style={{
-                color: 'var(--color-terracota-700)',
-                borderColor: 'var(--color-terracota-500)',
-                fontFamily: 'var(--font-sans)',
-                boxShadow: 'var(--shadow-editorial)'
-              }}
-            >
-              Ver Kanban Completo <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
+            <div className="mt-8 text-center">
+              <Link
+                href="/diario"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-colors text-base font-medium"
+                style={{ 
+                  borderColor: '#C05621', 
+                  color: '#C05621',
+                  fontFamily: 'var(--font-sans)'
+                }}
+              >
+                Ver todo o Diário
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </section>
+
+          {/* Lab Highlights - Rich Cards */}
+          <section>
+            <div className="mb-8 pb-4 border-b-2 border-stone-300">
+              <h2 className="text-4xl md:text-5xl font-bold flex items-center gap-3" style={{color: '#2D2420', fontFamily: 'var(--font-serif)'}}>
+                <Flame className="w-8 h-8 md:w-10 md:h-10" style={{color: '#C05621'}} />
+                Laboratório (Em Prática)
+              </h2>
+              <p className="text-base mt-2 text-stone-600" style={{ fontFamily: 'var(--font-serif)' }}>
+                Experimentos práticos de aplicação dos conceitos filosóficos no dia a dia
+              </p>
+            </div>
+            
+            {doingPosts.length > 0 ? (
+              <div className="space-y-6">
+                {doingPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/laboratorio/${post.slug}`}
+                    className="group block"
+                  >
+                    <article className="bg-white p-6 md:p-8 border-l-4 transition-all hover:translate-x-1"
+                      style={{
+                        borderColor: '#C05621',
+                        boxShadow: 'var(--shadow-editorial-md)'
+                      }}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <div
+                          className="px-3 py-1 rounded-full flex items-center gap-1.5"
+                          style={{ backgroundColor: '#ffedd5' }}
+                        >
+                          <Sparkles size={14} style={{ color: '#C05621' }} />
+                          <span
+                            className="text-xs font-bold uppercase tracking-wider"
+                            style={{ color: '#C05621', fontFamily: 'var(--font-sans)' }}
+                          >
+                            EM PRÁTICA
+                          </span>
+                        </div>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:underline" style={{color: '#2D2420', fontFamily: 'var(--font-serif)'}}>
+                        {post.frontmatter.title}
+                      </h3>
+                      <p className="text-base leading-loose text-stone-700" style={{fontFamily: 'var(--font-serif)'}}>
+                        {post.frontmatter.excerpt}
+                      </p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-stone-100 p-8 text-center border-l-4 border-stone-400" style={{ boxShadow: 'var(--shadow-editorial-md)' }}>
+                <p className="text-base text-stone-600" style={{fontFamily: 'var(--font-serif)'}}>
+                  Nenhum experimento em andamento no momento.
+                </p>
+              </div>
+            )}
+            
+            <div className="mt-8 text-center">
+              <Link
+                href="/laboratorio"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-colors text-base font-medium"
+                style={{ 
+                  borderColor: '#C05621', 
+                  color: '#C05621',
+                  fontFamily: 'var(--font-sans)'
+                }}
+              >
+                Ver todo o Laboratório
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
