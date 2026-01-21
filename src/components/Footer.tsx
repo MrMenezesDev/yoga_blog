@@ -89,7 +89,7 @@ export default function Footer() {
               Este é um projeto pessoal de estudo e reflexão. 
             </p>
             <p className="text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
-              📧 contato@sanghadigital.com
+              📧 erick@mrmenezes.dev
             </p>
           </div>
         </div>

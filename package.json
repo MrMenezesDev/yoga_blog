@@ -12,7 +12,7 @@
     "deploy": "npm run build && wrangler pages deploy out --project-name=blog-yoga-site",
     "start": "next start",
     "lint": "eslint",
-    "clean": "rm -rf .next out src/lib/generated",
+    "clean": "rimraf .next out src/lib/generated",
     "content:cache": "node scripts/generate-content-cache.mjs",
     "type-check": "tsc --noEmit"
   },
@@ -37,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.4",
+    "rimraf": "^6.1.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
