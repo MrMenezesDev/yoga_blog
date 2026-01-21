@@ -40,7 +40,7 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation - Hidden on mobile */}
-      <nav className="hidden md:block bg-white border-b" style={{borderColor: '#e7e5e4', boxShadow: 'var(--shadow-editorial)'}}>
+      <nav className="hidden md:block border-b" style={{backgroundColor: '#FDFBF7', borderColor: '#e7e5e4'}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-8">
             {/* Logo/Brand */}
@@ -88,7 +88,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-50" style={{borderColor: '#e7e5e4', boxShadow: 'var(--shadow-editorial-lg)'}}>
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t z-50" style={{backgroundColor: '#FDFBF7', borderColor: '#e7e5e4', boxShadow: 'var(--shadow-editorial-lg)'}}>
         <div className="flex items-center justify-around h-16 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;

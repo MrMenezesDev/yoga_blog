@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import RichPostCard from '@/components/RichPostCard';
 import TopBar from '@/components/TopBar';
+import Footer from '@/components/Footer';
 
 export default async function DiarioPage() {
   const posts = getAllDiaryPosts();
@@ -52,6 +53,7 @@ export default async function DiarioPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

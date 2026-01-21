@@ -6,6 +6,7 @@ import { ptBR } from 'date-fns/locale';
 import TopBar from '@/components/TopBar';
 import MandalaWidget from '@/components/MandalaWidget';
 import RichPostCard from '@/components/RichPostCard';
+import Footer from '@/components/Footer';
 
 export default async function Home() {
   const diaryPosts = getAllDiaryPosts().slice(0, 2);
@@ -77,7 +78,7 @@ export default async function Home() {
             <div className="mt-8 text-center">
               <Link
                 href="/diario"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-colors text-base font-medium"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-all duration-300 text-base font-medium hover:bg-stone-800 hover:text-white hover:border-stone-800"
                 style={{ 
                   borderColor: '#C05621', 
                   color: '#C05621',
@@ -150,7 +151,7 @@ export default async function Home() {
             <div className="mt-8 text-center">
               <Link
                 href="/laboratorio"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-colors text-base font-medium"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-all duration-300 text-base font-medium hover:bg-stone-800 hover:text-white hover:border-stone-800"
                 style={{ 
                   borderColor: '#C05621', 
                   color: '#C05621',
@@ -164,6 +165,7 @@ export default async function Home() {
           </section>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
