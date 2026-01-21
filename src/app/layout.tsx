@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar";
+import FocusHeader from "@/components/layout/FocusHeader";
+import Navigation from "@/components/layout/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +21,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "योग Garden - Digital Garden de Yoga e Psicanálise",
-  description: "Integrando Yoga, Sânscrito, Psicanálise e Tecnologia na busca por Sthira (estabilidade) e Sukha (fluidez)",
+  title: "Sangha Digital - Jornada de Autoconhecimento",
+  description: "Digital Garden de Yoga, Vedanta e Psicanálise",
 };
 
 export default function RootLayout({
@@ -32,17 +33,18 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-gradient-to-br from-orange-50 via-white to-blue-50`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-gray-50`}
       >
-        <div className="flex min-h-screen">
-          {/* Sidebar à esquerda */}
-          <Sidebar />
-          
-          {/* Conteúdo principal */}
-          <main className="flex-1 ml-64">
-            {children}
-          </main>
-        </div>
+        {/* Header Preto com Foco Atual */}
+        <FocusHeader />
+        
+        {/* Navbar Branca */}
+        <Navigation />
+        
+        {/* Conteúdo Principal */}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
