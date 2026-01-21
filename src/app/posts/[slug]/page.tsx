@@ -115,6 +115,20 @@ export default async function PostPage({ params }: PostPageProps) {
           <Post />
         </div>
 
+        {/* Giscus Comments Section - Opcional */}
+        {/* Descomentar e configurar quando tiver o repositório configurado:
+        <GiscusComments
+          repo="seu-usuario/seu-repo"
+          repoId="R_kgDOxxxxx"
+          category="Post Comments"
+          categoryId="DIC_kwDOxxxxxx"
+          mapping="pathname"
+          theme="noborder_light"
+          lang="pt"
+          loading="lazy"
+        />
+        */}
+
         <footer className="mt-16 pt-8 border-t border-gray-200">
           <Link
             href="/"

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f5; /* Creme/Off-white papel arroz */
-  --foreground: #334155; /* Slate-700 texto suave */
-  --charcoal: #1e293b; /* Slate-800 títulos */
+  --background: #FDFBF7; /* Papel Arroz Acadêmico */
+  --foreground: #44403c; /* Stone-700 texto suave */
+  --charcoal: #292524; /* Stone-800 títulos */
   --font-playfair: 'Playfair Display', serif;
 }
 
@@ -27,10 +27,26 @@
   --color-saffron-800: #9a3412;
   --color-saffron-900: #7c2d12;
   
-  /* Sombras suaves orgânicas */
-  --shadow-soft: 0 2px 15px -3px rgb(0 0 0 / 0.07), 0 10px 20px -2px rgb(0 0 0 / 0.04);
-  --shadow-soft-lg: 0 10px 40px -10px rgb(0 0 0 / 0.1), 0 2px 10px -2px rgb(0 0 0 / 0.05);
-  --shadow-glow: 0 0 20px rgb(249 115 22 / 0.15);
+  /* Paleta de Categorias Acadêmicas */
+  --color-filosofia: #9333ea; /* Purple-600 */
+  --color-filosofia-light: #f3e8ff; /* Purple-50 */
+  --color-pratica: #ea580c; /* Orange-600 */
+  --color-pratica-light: #fff7ed; /* Orange-50 */
+  --color-insight: #16a34a; /* Green-600 */
+  --color-insight-light: #f0fdf4; /* Green-50 */
+  --color-estudo: #0284c7; /* Sky-600 */
+  --color-estudo-light: #f0f9ff; /* Sky-50 */
+  --color-discussao: #7c3aed; /* Violet-600 */
+  --color-discussao-light: #f5f3ff; /* Violet-50 */
+  --color-ascensao: #10b981; /* Emerald-500 */
+  --color-ascensao-light: #d1fae5; /* Emerald-100 */
+  
+  /* Sombras suaves coloridas */
+  --shadow-soft: 0 2px 15px -3px rgb(0 0 0 / 0.05), 0 10px 20px -2px rgb(0 0 0 / 0.03);
+  --shadow-soft-lg: 0 10px 40px -10px rgb(0 0 0 / 0.08), 0 2px 10px -2px rgb(0 0 0 / 0.04);
+  --shadow-glow-orange: 0 4px 20px -4px rgb(234 88 12 / 0.15);
+  --shadow-glow-purple: 0 4px 20px -4px rgb(147 51 234 / 0.15);
+  --shadow-glow-green: 0 4px 20px -4px rgb(22 163 74 / 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,15 +60,18 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  line-height: 1.75;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.7;
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* Títulos mais suaves */
+/* Títulos acadêmicos */
 h1, h2, h3, h4, h5, h6 {
   color: var(--charcoal);
   font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 /* Smooth scrolling for anchor links */
@@ -60,15 +79,19 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prose styles for MDX content */
+/* Prose styles for MDX content - Academic & Organic */
 .prose {
-  @apply text-slate-700 leading-relaxed;
+  @apply leading-relaxed;
+  color: var(--foreground);
+  max-width: 75ch;
 }
 
 .prose h1 {
-  @apply text-4xl font-semibold mt-8 mb-6;
+  @apply text-4xl font-semibold mt-10 mb-8;
   color: var(--charcoal);
   font-family: var(--font-playfair);
+  border-bottom: 2px solid #e7e5e4;
+  padding-bottom: 0.5rem;
 }
 
 .prose h2 {

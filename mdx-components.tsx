@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import { SanskritTerm, GunaChart, MandalaClock } from '@/components/yoga';
 import { LacanianInsight } from '@/components/philosophy';
+import { ConceptCard, VersusGrid } from '@/components/mdx';
 import WikiLink from '@/components/mdx/WikiLink';
 import StatusBoard from '@/components/mdx/StatusBoard';
 
@@ -13,6 +14,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     
     // Philosophy components
     LacanianInsight,
+    
+    // Academic Knowledge Artifacts
+    ConceptCard,
+    VersusGrid,
     
     // MDX interconnection components
     WikiLink,
