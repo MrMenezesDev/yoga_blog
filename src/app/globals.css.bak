@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;600&display=swap');
 
 :root {
   --background: #FDFBF7; /* Papel Antigo Warm White */
   --foreground: #44403C; /* Stone-700 Cinza Chumbo Quente */
   --charcoal: #2D2420; /* Marrom Café para títulos */
-  --font-serif: 'Georgia', 'Times New Roman', serif;
-  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-serif: 'Libre Baskerville', 'Georgia', serif;
+  --font-sans: 'Lato', -apple-system, sans-serif;
 }
 
 @theme inline {

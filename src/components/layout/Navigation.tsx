@@ -40,13 +40,13 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation - Hidden on mobile */}
-      <nav className="hidden md:block bg-white/80 backdrop-blur-sm border-b border-stone-200" style={{boxShadow: 'var(--shadow-soft)'}}>
+      <nav className="hidden md:block bg-white border-b" style={{borderColor: '#e7e5e4', boxShadow: 'var(--shadow-editorial)'}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-8">
             {/* Logo/Brand */}
             <Link href="/" className="py-4 flex items-center gap-2">
-              <div className="text-xl font-semibold">
-                <span style={{color: 'var(--color-saffron-600)'}}>SANGHA</span> <span className="text-slate-700">DIGITAL</span>
+              <div className="text-xl font-bold" style={{fontFamily: 'var(--font-serif)'}}>
+                <span style={{color: 'var(--color-terracota-600)'}}>SANGHA</span> <span style={{color: 'var(--charcoal)'}}>DIGITAL</span>
               </div>
             </Link>
 
@@ -61,19 +61,21 @@ export default function Navigation() {
                     key={item.href}
                     href={item.href}
                     className={`
-                      flex items-center gap-2 px-4 py-4 text-sm font-medium rounded-xl
-                      transition-all duration-300
+                      flex items-center gap-2 px-4 py-4 text-sm font-medium transition-all
                       ${
                         active
-                          ? 'text-slate-800'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-stone-50'
+                          ? ''
+                          : 'hover:bg-stone-50'
                       }
                     `}
                     style={active ? {
-                      backgroundColor: 'var(--color-saffron-50)',
-                      color: 'var(--color-saffron-700)',
-                      boxShadow: 'var(--shadow-soft)'
-                    } : {}}
+                      color: 'var(--color-terracota-700)',
+                      borderBottom: '2px solid var(--color-terracota-500)',
+                      fontFamily: 'var(--font-sans)'
+                    } : {
+                      color: '#78716c',
+                      fontFamily: 'var(--font-sans)'
+                    }}
                   >
                     <Icon className="w-4 h-4" />
                     {item.name}
@@ -86,7 +88,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-stone-200 z-50" style={{boxShadow: 'var(--shadow-soft-lg)'}}>
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-50" style={{borderColor: '#e7e5e4', boxShadow: 'var(--shadow-editorial-lg)'}}>
         <div className="flex items-center justify-around h-16 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -95,13 +97,13 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-col items-center justify-center gap-1 px-4 py-2 rounded-lg transition-all duration-300 flex-1"
-                style={active ? {color: 'var(--color-saffron-600)'} : {color: '#64748b'}}
+                className="flex flex-col items-center justify-center gap-1 px-4 py-2 transition-all flex-1"
+                style={active ? {color: 'var(--color-terracota-600)'} : {color: '#78716c'}}
               >
                 <Icon className={`w-6 h-6 ${
                   active ? 'scale-110' : 'scale-100'
                 } transition-transform`} />
-                <span className="text-xs font-medium">{item.name}</span>
+                <span className="text-xs font-medium" style={{fontFamily: 'var(--font-sans)'}}>{item.name}</span>
               </Link>
             );
           })}

@@ -73,12 +73,14 @@ export default function ConceptCard({ category, icon: Icon, title, children }: C
   return (
     <div 
       className={`
-        ${styles.bgColor} ${styles.borderColor}
-        border-l-4 rounded-2xl p-6 my-8
-        shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)]
-        transition-all duration-300 hover:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.12)]
-        hover:translate-y-[-2px]
+        ${styles.bgColor}
+        border-l-4 p-6 md:p-8 my-8
+        transition-all duration-300 hover:translate-x-1
       `}
+      style={{
+        borderLeftColor: styles.borderColor.replace('border-', ''),
+        boxShadow: 'var(--shadow-editorial-md)'
+      }}
     >
       {/* Header */}
       <div className="flex items-start gap-4 mb-4">
@@ -90,13 +92,13 @@ export default function ConceptCard({ category, icon: Icon, title, children }: C
         
         <div className="flex-1">
           {/* Category Label */}
-          <div className={`text-xs font-semibold tracking-wider ${styles.textColor} mb-2 uppercase`}>
+          <div className={`text-xs font-bold tracking-wider ${styles.textColor} mb-2 uppercase`} style={{fontFamily: 'var(--font-sans)'}}>
             {styles.label}
           </div>
           
           {/* Title */}
           {title && (
-            <h3 className="text-xl font-semibold text-stone-800 mb-3 leading-tight font-serif">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight" style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
               {title}
             </h3>
           )}

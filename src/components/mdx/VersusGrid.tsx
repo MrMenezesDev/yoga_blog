@@ -54,29 +54,32 @@ export default function VersusGrid({
   const rightStyles = colorStyles[rightColor];
   
   return (
-    <div className="my-10">
+    <div className="my-12">
       {/* Comparison Grid */}
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
+      <div className="grid md:grid-cols-2 gap-8 mb-8">
         {/* Left Side */}
         <div 
           className={`
-            ${leftStyles.bg} ${leftStyles.border}
-            border-2 rounded-2xl p-6
-            shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]
+            ${leftStyles.bg}
+            border-l-4 p-6 md:p-8
           `}
+          style={{
+            borderLeftColor: leftStyles.border.replace('border-', ''),
+            boxShadow: 'var(--shadow-editorial-md)'
+          }}
         >
           <div className="mb-4">
-            <h3 className={`text-2xl font-bold ${leftStyles.text} mb-1 font-serif`}>
+            <h3 className={`text-3xl font-bold mb-2`} style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
               {leftTitle}
             </h3>
             {leftSubtitle && (
-              <p className={`text-sm ${leftStyles.accent} font-medium`}>
+              <p className={`text-sm ${leftStyles.accent} font-medium`} style={{fontFamily: 'var(--font-sans)'}}>
                 {leftSubtitle}
               </p>
             )}
           </div>
           
-          <div className="prose prose-sm max-w-none text-stone-700">
+          <div className="prose prose-sm max-w-none leading-relaxed" style={{color: 'var(--foreground)'}}>
             {leftContent}
           </div>
         </div>
@@ -84,23 +87,26 @@ export default function VersusGrid({
         {/* Right Side */}
         <div 
           className={`
-            ${rightStyles.bg} ${rightStyles.border}
-            border-2 rounded-2xl p-6
-            shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]
+            ${rightStyles.bg}
+            border-l-4 p-6 md:p-8
           `}
+          style={{
+            borderLeftColor: rightStyles.border.replace('border-', ''),
+            boxShadow: 'var(--shadow-editorial-md)'
+          }}
         >
           <div className="mb-4">
-            <h3 className={`text-2xl font-bold ${rightStyles.text} mb-1 font-serif`}>
+            <h3 className={`text-3xl font-bold mb-2`} style={{color: 'var(--charcoal)', fontFamily: 'var(--font-serif)'}}>
               {rightTitle}
             </h3>
             {rightSubtitle && (
-              <p className={`text-sm ${rightStyles.accent} font-medium`}>
+              <p className={`text-sm ${rightStyles.accent} font-medium`} style={{fontFamily: 'var(--font-sans)'}}>
                 {rightSubtitle}
               </p>
             )}
           </div>
           
-          <div className="prose prose-sm max-w-none text-stone-700">
+          <div className="prose prose-sm max-w-none leading-relaxed" style={{color: 'var(--foreground)'}}>
             {rightContent}
           </div>
         </div>
@@ -108,10 +114,10 @@ export default function VersusGrid({
       
       {/* Conclusion Box */}
       {conclusion && (
-        <div className="bg-stone-100 border-2 border-stone-200 rounded-2xl p-6 shadow-soft">
+        <div className="bg-stone-100 border-l-4 p-6 md:p-8" style={{borderLeftColor: 'var(--color-terracota-500)', boxShadow: 'var(--shadow-editorial)'}}>
           <div className="flex items-start gap-3">
-            <span className="text-2xl">💡</span>
-            <div className="prose prose-sm max-w-none text-stone-700">
+            <span className="text-3xl">💡</span>
+            <div className="prose prose-sm max-w-none leading-relaxed" style={{color: 'var(--foreground)'}}>
               {conclusion}
             </div>
           </div>
