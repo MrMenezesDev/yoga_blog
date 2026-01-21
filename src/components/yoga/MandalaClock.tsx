@@ -40,29 +40,33 @@ export default function MandalaClock({
   ];
 
   return (
-    <div className="my-8 p-6 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-lg shadow-lg">
-      <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+    <div className="my-6 md:my-8 p-4 md:p-6 rounded-xl md:rounded-2xl" 
+      style={{
+        background: 'linear-gradient(to bottom right, #faf5ff, #fce7f3, #fed7aa)',
+        boxShadow: 'var(--shadow-soft-lg)'
+      }}>
+      <h3 className="text-lg md:text-xl font-semibold mb-2" style={{color: 'var(--charcoal)'}}>{title}</h3>
       {description && (
-        <p className="text-sm text-gray-600 mb-4 italic">{description}</p>
+        <p className="text-xs md:text-sm text-slate-600 mb-4 italic">{description}</p>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {chakras.map((chakra, index) => (
           <div key={chakra.name} className="space-y-2">
-            <div className="flex justify-between items-baseline">
+            <div className="flex justify-between items-baseline flex-wrap gap-2">
               <div>
-                <span className="text-sm font-semibold text-gray-800">
+                <span className="text-sm font-semibold" style={{color: 'var(--charcoal)'}}>
                   {chakra.name}
                 </span>
-                <span className="ml-2 text-xs text-gray-500">
+                <span className="ml-2 text-xs text-slate-500">
                   {chakra.sanskrit}
                 </span>
               </div>
-              <span className="text-sm font-bold text-gray-700">
+              <span className="text-sm font-bold text-slate-700">
                 {chakra.level}%
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-stone-200 rounded-full h-2">
               <div
                 className={`${colors[index]} h-2 rounded-full transition-all duration-700`}
                 style={{ width: `${chakra.level}%` }}
@@ -72,8 +76,8 @@ export default function MandalaClock({
         ))}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-gray-300">
-        <p className="text-xs text-gray-500">
+      <div className="mt-6 pt-4 border-t border-slate-300">
+        <p className="text-[10px] md:text-xs text-slate-500">
           Medição baseada na observação durante práticas de Prāṇāyāma e Dhyāna
         </p>
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { differenceInDays } from 'date-fns';
+import { Sparkles } from 'lucide-react';
 import type { LabPost } from '@/types/content';
 
 interface FocusHeaderClientProps {
@@ -23,7 +24,7 @@ export default function FocusHeaderClient({ focus }: FocusHeaderClientProps) {
 
   if (!focus) {
     return (
-      <div className="bg-gray-900 text-white py-2 px-6 text-sm">
+      <div className="text-white py-3 px-6 text-sm hidden md:block" style={{backgroundColor: 'var(--charcoal)'}}>
         <div className="max-w-7xl mx-auto text-center">
           Sangha Digital - Jornada de Autoconhecimento
         </div>
@@ -32,20 +33,38 @@ export default function FocusHeaderClient({ focus }: FocusHeaderClientProps) {
   }
 
   return (
-    <div className="bg-gray-900 text-white py-2 px-6 text-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <span className="font-semibold">FOCO ATUAL (SADHANA)</span>
-          <span className="text-orange-400">
+    <>
+      {/* Desktop Header - Full */}
+      <div className="hidden md:block text-white py-3 px-6 text-sm" style={{backgroundColor: 'var(--charcoal)'}}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="font-semibold tracking-wide">FOCO ATUAL (SADHANA)</span>
+            <span style={{color: 'var(--color-saffron-400)'}}>
+              {focus.frontmatter.title}
+            </span>
+          </div>
+          {daysRemaining !== null && (
+            <div className="font-mono" style={{color: 'var(--color-saffron-300)'}}>
+              ({daysRemaining} dias)
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Header - Compact */}
+      <div className="md:hidden text-white py-2 px-4 text-xs flex items-center justify-between" style={{backgroundColor: 'var(--charcoal)'}}>
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-3 h-3" style={{color: 'var(--color-saffron-400)'}} />
+          <span className="truncate" style={{color: 'var(--color-saffron-400)'}}>
             {focus.frontmatter.title}
           </span>
         </div>
         {daysRemaining !== null && (
-          <div className="text-orange-300 font-mono">
-            ({daysRemaining} dias)
+          <div className="font-mono whitespace-nowrap" style={{color: 'var(--color-saffron-300)'}}>
+            {daysRemaining}d
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
