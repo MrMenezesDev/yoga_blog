@@ -1,6 +1,8 @@
-import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import SadhanaWidget from "@/components/dashboard/SadhanaWidget";
+import RecentGarden from "@/components/dashboard/RecentGarden";
+import AboutSection from "@/components/dashboard/AboutSection";
 
 interface PostMetadata {
   title: string;
@@ -39,72 +41,66 @@ async function getPosts(): Promise<PostMetadata[]> {
 export default async function Home() {
   const posts = await getPosts();
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <header className="mb-16 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            <span className="text-orange-600">योग</span> Blog
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Integrando Yoga, Sânscrito, Psicanálise e Tecnologia na busca por{" "}
-            <em className="text-orange-700">Sthira</em> (estabilidade) e{" "}
-            <em className="text-blue-700">Sukha</em> (fluidez)
-          </p>
-        </header>
+  // Transform posts into garden updates
+  const gardenUpdates = posts.slice(0, 6).map(post => ({
+    title: post.title,
+    type: 'post' as const,
+    date: post.date,
+    slug: post.slug,
+    excerpt: post.excerpt,
+  }));
 
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-8 border-b-2 border-orange-300 pb-2">
-            Posts Recentes
-          </h2>
-          
-          <div className="space-y-8">
-            {posts.length > 0 ? (
-              posts.map((post) => (
-                <article
-                  key={post.slug}
-                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-orange-500"
-                >
-                  <Link href={`/posts/${post.slug}`}>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2 hover:text-orange-600 transition-colors">
-                      {post.title}
-                    </h3>
-                  </Link>
-                  <time className="text-sm text-gray-500 mb-3 block">
-                    {new Date(post.date).toLocaleDateString("pt-BR", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-                  <Link
-                    href={`/posts/${post.slug}`}
-                    className="text-orange-600 font-medium hover:text-orange-700 transition-colors"
-                  >
-                    Ler mais →
-                  </Link>
-                </article>
-              ))
-            ) : (
-              <p className="text-gray-600 text-center py-12">
-                Nenhum post publicado ainda. Comece escrevendo em{" "}
-                <code className="bg-gray-100 px-2 py-1 rounded">
-                  /content/posts
-                </code>
-              </p>
-            )}
+  // TODO: Add wiki and lab updates when those sections are implemented
+  // For now, we'll just show posts
+
+  return (
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 py-12 space-y-12">
+        {/* Sadhana Widget - Destaque */}
+        <SadhanaWidget
+          title="Sādhana Atual"
+          focus="Maṇipūra Chakra"
+          day={305}
+          totalDays={365}
+          description="Ascese de 365 dias: Integração Yoga-Psicanálise"
+        />
+
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Recent Garden Updates */}
+        <RecentGarden updates={gardenUpdates} />
+
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-lg p-6 border-2 border-orange-100">
+            <div className="text-3xl font-bold text-orange-600 mb-2">
+              {posts.length}
+            </div>
+            <div className="text-sm text-gray-600">Reflexões no Diário</div>
           </div>
-        </section>
+
+          <div className="bg-white rounded-lg p-6 border-2 border-purple-100">
+            <div className="text-3xl font-bold text-purple-600 mb-2">
+              47
+            </div>
+            <div className="text-sm text-gray-600">Termos na Sabedoria</div>
+          </div>
+
+          <div className="bg-white rounded-lg p-6 border-2 border-green-100">
+            <div className="text-3xl font-bold text-green-600 mb-2">
+              12
+            </div>
+            <div className="text-sm text-gray-600">Estudos no Laboratório</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
         <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
           <p>
             Blog construído com Next.js, TypeScript, Tailwind CSS e MDX
           </p>
         </footer>
-      </main>
-    </div>
-  );
-}

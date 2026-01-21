@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import TableOfContents from "@/components/layout/TableOfContents";
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -72,13 +73,14 @@ export default async function PostPage({ params }: PostPageProps) {
   const { Post, metadata } = postData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
-      <article className="max-w-4xl mx-auto px-6 py-16">
+    <div className="min-h-screen">
+      {/* Main Content */}
+      <article className="max-w-4xl mx-auto px-6 py-16 mr-64">
         <Link
           href="/"
           className="text-orange-600 hover:text-orange-700 font-medium mb-8 inline-block"
         >
-          ← Voltar para o início
+          ← Voltar ao Início
         </Link>
 
         <header className="mb-12">
@@ -118,10 +120,13 @@ export default async function PostPage({ params }: PostPageProps) {
             href="/"
             className="text-orange-600 hover:text-orange-700 font-medium"
           >
-            ← Voltar para o início
+            ← Voltar ao Início
           </Link>
         </footer>
       </article>
+
+      {/* Table of Contents - Right Sidebar */}
+      <TableOfContents />
     </div>
   );
 }

@@ -1,0 +1,114 @@
+---
+title: "Exemplo: Usando Wiki-Links e Interconexões"
+date: "2026-01-21"
+author: "Blog Yoga"
+tags: ["Tutorial", "Digital Garden", "MDX"]
+excerpt: "Demonstração prática de como usar os componentes de interconexão: WikiLink, StatusBoard e links entre seções."
+---
+
+# Exemplo: Usando Wiki-Links e Interconexões
+
+Este post demonstra como usar os novos componentes MDX para criar um verdadeiro **Digital Garden** interconectado.
+
+## 1. Wiki-Links com Hover Cards
+
+Quando você escreve sobre conceitos que já estão no glossário da Sabedoria, pode criar links inteligentes que mostram definições ao passar o mouse:
+
+No texto abaixo, a palavra "Viṣāda" tem um hover-card:
+
+<WikiLink 
+  term="Viṣāda" 
+  definition="Desalento profundo que marca o início da jornada espiritual. Estado de colapso das estruturas imaginárias do ego."
+  devanagari="विषाद"
+  category="sanskrit"
+>
+  Viṣāda
+</WikiLink> é o estado que Arjuna experimenta no primeiro capítulo da Bhagavad Gītā.
+
+Você também pode linkar conceitos psicanalíticos:
+
+A noção de <WikiLink 
+  term="Objet petit a" 
+  definition="Em Lacan, o objeto causa do desejo - aquilo que move o sujeito mas nunca pode ser plenamente alcançado."
+  category="psychoanalysis"
+>
+  Objet petit a
+</WikiLink> tem paralelos interessantes com o conceito de Ātman.
+
+## 2. Status Board (Kanban)
+
+Para mostrar o progresso dos estudos, use o componente StatusBoard:
+
+<StatusBoard studies={[
+  {
+    title: "Bhagavad Gītā - Cap. 7-12",
+    description: "Segunda metade da Gītā focando em Bhakti Yoga",
+    status: "in-progress",
+    tags: ["Filosofia", "Sânscrito"],
+    linkedPosts: ["2026-01-21-raiva-de-ser-livre"]
+  },
+  {
+    title: "Meditação Vipassanā - 30 dias",
+    description: "Retiro virtual com prática diária de 2h",
+    status: "planned",
+    tags: ["Prática", "Meditação"]
+  },
+  {
+    title: "Prāṇāyāma Básico",
+    description: "Nāḍī Śodhana e Kapālabhāti - 20 min/dia",
+    status: "integrated",
+    tags: ["Yoga", "Prática"],
+    linkedPosts: ["2026-01-21-raiva-de-ser-livre"]
+  }
+]} />
+
+## 3. Componentes Yoga Existentes
+
+Os componentes anteriores continuam funcionando:
+
+<SanskritTerm 
+  term="Sthira-Sukham Āsanam"
+  devanagari="स्थिर सुखम् आसनम्"
+  transliteration="sthira-sukham āsanam"
+  meaning="O āsana (postura) deve ter estabilidade e conforto"
+  etymology="Sthira (firme) + Sukha (agradável) + Āsana (assento/postura)"
+  anvaya="Sutra 2.46 dos Yoga Sūtras de Patañjali. Define a qualidade essencial da prática postural."
+/>
+
+<GunaChart 
+  sattva={60} 
+  rajas={30} 
+  tamas={10}
+  date="21 de janeiro de 2026"
+  context="Após meditação matinal e leitura da Gītā"
+/>
+
+## 4. Navegação Entre Seções
+
+Você pode criar links explícitos para outras seções do Garden:
+
+- **No Diário:** Use `[texto](/posts/slug-do-post)` ou `/diario` para a lista
+- **No Laboratório:** Use `/laboratorio` para ver o cronograma
+- **Na Sabedoria:** Use `/sabedoria` ou `/sabedoria/termo-especifico`
+
+Por exemplo: 
+
+- Veja a lista completa de reflexões em [Diário](/diario)
+- Confira o cronograma de estudos no [Laboratório](/laboratorio)
+- Explore mais conceitos na [Sabedoria](/sabedoria)
+
+## Conclusão
+
+Este sistema permite que cada post, cada termo no glossário e cada item de estudo 
+se conectem organicamente. O resultado não é um blog linear, mas um **ecossistema 
+de conhecimento vivo**.
+
+A navegação acontece de forma fluida:
+1. Você lê uma reflexão no Diário
+2. Passa o mouse sobre um termo em Sânscrito
+3. Vê a definição instantânea
+4. Clica para ir até a Sabedoria
+5. De lá, descobre posts relacionados
+6. Volta ao Laboratório para ver o contexto de estudo
+
+🌱 **Isto é um Digital Garden.**
