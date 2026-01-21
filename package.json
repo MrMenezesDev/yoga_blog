@@ -2,13 +2,19 @@
   "name": "blog_yoga_site",
   "version": "0.1.0",
   "private": true,
+  "description": "Jardim digital de Sangha - Jornada de autoconhecimento através do Yoga e Filosofia Indiana",
+  "author": "Erick Zweig",
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-content-cache.mjs",
     "build": "npm run prebuild && next build",
     "preview": "cd out && npx http-server -p 8080",
+    "deploy": "npm run build && wrangler pages deploy out --project-name=blog-yoga-site",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "clean": "rm -rf .next out src/lib/generated",
+    "content:cache": "node scripts/generate-content-cache.mjs",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
