@@ -1,0 +1,30 @@
+﻿# ============================================
+# PREPARAÇÃO PARA CLOUDFLARE PAGES
+# ============================================
+
+## PASSO 1: Instalar dependências necessárias
+npm install --save-dev @cloudflare/next-on-pages cross-env wrangler
+
+## PASSO 2: Gerar cache de conteúdo
+node scripts/generate-content-cache.mjs
+
+## PASSO 3: Testar build local
+npm run pages:build
+
+## PASSO 4: Testar preview local
+npm run preview
+
+## PASSO 5: Deploy (se tudo estiver OK)
+wrangler login
+npm run deploy
+
+# ============================================
+# NOTAS IMPORTANTES
+# ============================================
+
+- O script generate-content-cache.mjs lê todos os MDX e gera JSON
+- O JSON é importado em mdx.cloudflare.ts (sem uso de 'fs')
+- Para desenvolvimento: use 'npm run dev' (usa filesystem normal)
+- Para Cloudflare: use 'npm run pages:build' (usa JSON cache)
+
+# ============================================

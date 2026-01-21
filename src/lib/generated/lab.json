@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "jejum-ekadashi",
+    "frontmatter": {
+      "title": "Jejum de Ekadāśī",
+      "date": "2026-01-15",
+      "status": "doing",
+      "type": "ritual",
+      "description": "Prática quinzenal de jejum parcial nos dias de Ekadashi para purificação e controle sensorial.",
+      "duration": "Contínuo (2x/mês)",
+      "deadline": "2026-12-31",
+      "tags": [
+        "Ritual",
+        "Sādhana",
+        "Ayurveda"
+      ],
+      "relatedConcepts": [
+        "titiksha",
+        "upeksha"
+      ],
+      "relatedDiary": [],
+      "featured": false,
+      "daysRemaining": 344
+    },
+    "content": "\r\n# Jejum de Ekadāśī - Ritual Mensal\r\n\r\n## Contexto\r\n\r\nEkadāśī é o 11º dia lunar (tanto na lua crescente quanto minguante) dedicado à purificação corporal e mental. Na tradição védica, este é considerado o dia mais favorável para práticas espirituais intensivas.\r\n\r\n## Protocolo Atual\r\n\r\n### Preparação (Dia Anterior)\r\n- Refeição leve após as 18h\r\n- Evitar carne, grãos, leguminosas\r\n- Hidratação intensa\r\n\r\n### Dia do Jejum\r\n- **Manhã:** Apenas água com limão\r\n- **Tarde:** Frutas permitidas (banana, manga, uva)\r\n- **Noite:** Leite com açafrão ou água de coco\r\n- **Evitar:** Grãos (arroz, trigo), leguminosas, cebola, alho\r\n\r\n### Práticas Associadas\r\n- Prāṇāyāma estendido (60 min)\r\n- Leitura de escrituras (Bhagavad Gītā ou Upaniṣads)\r\n- Mantra Japa (108 repetições)\r\n\r\n## Desafios\r\n\r\nO principal desafio não é a fome física, mas a **inquietação mental** (*rajas*) que surge quando se quebra a rotina alimentar. \r\n\r\nAqui entra **Titikṣā** (tolerância) - não reagir compulsivamente à sensação de vazio. Observar sem julgar.\r\n\r\n## Efeitos Percebidos\r\n\r\nApós 3 meses de prática:\r\n- Digestão mais eficiente nos outros dias\r\n- Clareza mental aumentada (sattva)\r\n- Relação menos compulsiva com comida\r\n\r\n## Próximos Passos\r\n\r\n- [ ] Estender jejum completo (só água) por 24h\r\n- [ ] Documentar estados energéticos (chakras) durante o jejum\r\n- [ ] Comparar com dias de lua nova (Amāvāsyā)\r\n\r\n---\r\n\r\n**Última Atualização:** 21 de janeiro de 2026  \r\n**Status:** Em Prática Regular\r\n"
+  },
+  {
+    "slug": "estudo-corpo-causal",
+    "frontmatter": {
+      "title": "Estudo do Corpo Causal",
+      "date": "2026-01-10",
+      "status": "todo",
+      "type": "estudo",
+      "description": "Leitura estruturada do Māṇḍūkya Upaniṣad e correlação com o conceito lacaniano de Real.",
+      "duration": "2 meses",
+      "tags": [
+        "Vedanta",
+        "Psicanálise",
+        "Upanishads"
+      ],
+      "relatedConcepts": [
+        "vasana"
+      ],
+      "relatedDiary": [],
+      "featured": false
+    },
+    "content": "\r\n# Estudo do Corpo Causal (Kāraṇa Śarīra)\r\n\r\n## Objetivo\r\n\r\nCompreender o **Corpo Causal** (kāraṇa śarīra) descrito no Vedānta e sua relação com o estado de sono profundo (*suṣupti*) conforme o Māṇḍūkya Upaniṣad.\r\n\r\nSimultaneamente, explorar possíveis paralelos com o conceito de **Real** em Lacan - aquilo que está além do Simbólico e do Imaginário.\r\n\r\n## Materiais\r\n\r\n1. **Māṇḍūkya Upaniṣad** (tradução de Swami Gambhirananda)\r\n2. **Kārikās de Gauḍapāda** (comentário sobre o Māṇḍūkya)\r\n3. **Seminário 7: A Ética da Psicanálise** (Jacques Lacan)\r\n4. **Vivekachūḍāmaṇi** de Śaṅkara (versos 120-150)\r\n\r\n## Perguntas de Pesquisa\r\n\r\n1. O que são as **Vāsanās** (impressões latentes) que residem no corpo causal?\r\n2. Como o estado de sono profundo difere da ignorância (*avidyā*)?\r\n3. Há uma estrutura temporal no Real lacaniano similar ao \"tempo\" do corpo causal?\r\n\r\n## Cronograma\r\n\r\n- **Semana 1-2:** Leitura e tradução do Māṇḍūkya\r\n- **Semana 3-4:** Comentário de Gauḍapāda\r\n- **Semana 5-6:** Correlação com Lacan (Seminário 7)\r\n- **Semana 7-8:** Síntese e escrita no Diário\r\n\r\n## Status\r\n\r\nAguardando conclusão do ciclo \"Mandala 19/Mar\" para iniciar com foco total.\r\n\r\n---\r\n\r\n**Previsão de Início:** Abril de 2026\r\n"
+  },
+  {
+    "slug": "mandala-19mar",
+    "frontmatter": {
+      "title": "Mandala 19/Mar",
+      "date": "2025-12-20",
+      "status": "doing",
+      "type": "pratica",
+      "description": "Retiro intensivo de 21 dias focado em estabilizar a vontade antes dos 33 anos.",
+      "duration": "21 dias",
+      "deadline": "2026-03-19",
+      "tags": [
+        "Retiro",
+        "Kundalini",
+        "Aniversário"
+      ],
+      "relatedConcepts": [
+        "manipura",
+        "kshana"
+      ],
+      "relatedDiary": [],
+      "featured": true,
+      "daysRemaining": 57
+    },
+    "content": "\r\n# Mandala da Cristalização - 19/Março\r\n\r\n## O Que É\r\n\r\n\"Mandala\" aqui significa um ciclo fechado, completo. Este é um retiro de **21 dias** culminando no meu aniversário de 33 anos (19/março/2026). O objetivo: **estabilizar a vontade** antes de entrar na segunda metade dos 30.\r\n\r\n## Por Que 33 Anos?\r\n\r\nNa numerologia védica e também na simbologia cristã, 33 é um número de **maturação espiritual**. É o ponto médio entre os excessos da juventude (rajas) e a inércia da velhice (tamas). O momento ideal para **cristalizar práticas**.\r\n\r\n## Estrutura do Retiro\r\n\r\n### Práticas Diárias (5h-6h)\r\n- **05:30** - Prāṇāyāma (Nāḍī Śodhana 20 min)\r\n- **06:00** - Meditação sentada (40 min)\r\n- **07:00** - Āsanas (Série de Rishikesh modificada)\r\n- **19:00** - Mantra Japa (Gāyatrī 108x)\r\n- **20:30** - Leitura (Bhagavad Gītā Cap. 13-18)\r\n\r\n### Restrições\r\n- Jejum nos Ekadāśīs (2x no período)\r\n- Silêncio nobre (redução de conversas desnecessárias)\r\n- Zero redes sociais pessoais\r\n- Dieta sātvica estrita\r\n\r\n## Foco Energético: Maṇipūra\r\n\r\nO **plexo solar** (3º chakra) rege a vontade e o \"fogo interior\" (*agni*). Nos últimos anos, percebi oscilação entre:\r\n- **Excesso de Agni:** Ansiedade, compulsão por produtividade\r\n- **Deficiência:** Procrastinação, falta de direção\r\n\r\nO retiro visa **equilibrar e estabilizar** este centro.\r\n\r\n## Conceito-Chave: Kṣaṇa (O Instante)\r\n\r\nCada momento é uma oportunidade de escolha. O retiro não é sobre \"conquistar\" algo ao final, mas sobre **praticar presença radical** em cada Kṣaṇa dos 21 dias.\r\n\r\n## Progresso\r\n\r\n**Início:** 27 de fevereiro de 2026  \r\n**Dias Completados:** Em andamento  \r\n**Deadline:** 19 de março de 2026 (57 dias restantes)\r\n\r\n---\r\n\r\n**Este item está marcado como \"Foco Atual\" no header do site.**\r\n"
+  }
+]
