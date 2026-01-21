@@ -1,0 +1,20 @@
+{
+  "bhagavadGita": {
+    "chapter1": {
+      "verse47": {
+        "sanskrit": "एवमुक्त्वार्जुनः संख्ये रथोपस्थ उपाविशत् । विसृज्य सशरं चापं शोकसंविग्नमानसः ॥",
+        "transliteration": "evam uktvārjunaḥ saṅkhye rathopastha upāviśat | visṛjya saśaraṃ cāpaṃ śoka-saṃvigna-mānasaḥ ||",
+        "translation": "Tendo assim falado no campo de batalha, Arjuna sentou-se no carro, jogando fora o arco e as flechas, com a mente dominada pela aflição.",
+        "commentary": "Este verso marca o ponto culminante do colapso de Arjuna. O gesto de jogar o arco não é covarde—é o momento em que o sujeito reconhece sua divisão."
+      }
+    },
+    "chapter2": {
+      "verse11": {
+        "sanskrit": "श्री भगवानुवाच । अशोच्यानन्वशोचस्त्वं प्रज्ञावादांश्च भाषसे ।",
+        "transliteration": "śrī bhagavān uvāca | aśocyān anvaśocas tvaṃ prajñā-vādāṃś ca bhāṣase |",
+        "translation": "O Senhor disse: Tu te lamentas por aqueles que não merecem lamento, embora profiras palavras de sabedoria.",
+        "commentary": "Krishna não oferece consolo emocional. Ele aponta para a estrutura do desejo: lamentar-se por quem não deve ser lamentado."
+      }
+    }
+  }
+}

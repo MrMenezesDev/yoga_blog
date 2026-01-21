@@ -1,64 +1,109 @@
-import Image from "next/image";
+import Link from "next/link";
+import fs from "fs";
+import path from "path";
 
-export default function Home() {
+interface PostMetadata {
+  title: string;
+  date: string;
+  excerpt: string;
+  slug: string;
+}
+
+async function getPosts(): Promise<PostMetadata[]> {
+  const postsDirectory = path.join(process.cwd(), "content/posts");
+  const filenames = fs.readdirSync(postsDirectory);
+  
+  const posts = filenames
+    .filter((file) => file.endsWith(".mdx"))
+    .map((filename) => {
+      const slug = filename.replace(/\.mdx$/, "");
+      const filePath = path.join(postsDirectory, filename);
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      
+      // Extract frontmatter
+      const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+      const match = frontmatterRegex.exec(fileContents);
+      const frontmatter = match ? match[1] : "";
+      
+      const title = frontmatter.match(/title:\s*["'](.+)["']/)?.[1] || slug;
+      const date = frontmatter.match(/date:\s*["'](.+)["']/)?.[1] || "";
+      const excerpt = frontmatter.match(/excerpt:\s*["'](.+)["']/)?.[1] || "";
+      
+      return { title, date, excerpt, slug };
+    })
+    .sort((a, b) => (a.date > b.date ? -1 : 1));
+  
+  return posts;
+}
+
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
+      <main className="max-w-4xl mx-auto px-6 py-16">
+        <header className="mb-16 text-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            <span className="text-orange-600">योग</span> Blog
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Integrando Yoga, Sânscrito, Psicanálise e Tecnologia na busca por{" "}
+            <em className="text-orange-700">Sthira</em> (estabilidade) e{" "}
+            <em className="text-blue-700">Sukha</em> (fluidez)
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </header>
+
+        <section>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-8 border-b-2 border-orange-300 pb-2">
+            Posts Recentes
+          </h2>
+          
+          <div className="space-y-8">
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-orange-500"
+                >
+                  <Link href={`/posts/${post.slug}`}>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2 hover:text-orange-600 transition-colors">
+                      {post.title}
+                    </h3>
+                  </Link>
+                  <time className="text-sm text-gray-500 mb-3 block">
+                    {new Date(post.date).toLocaleDateString("pt-BR", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    href={`/posts/${post.slug}`}
+                    className="text-orange-600 font-medium hover:text-orange-700 transition-colors"
+                  >
+                    Ler mais →
+                  </Link>
+                </article>
+              ))
+            ) : (
+              <p className="text-gray-600 text-center py-12">
+                Nenhum post publicado ainda. Comece escrevendo em{" "}
+                <code className="bg-gray-100 px-2 py-1 rounded">
+                  /content/posts
+                </code>
+              </p>
+            )}
+          </div>
+        </section>
+
+        <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+          <p>
+            Blog construído com Next.js, TypeScript, Tailwind CSS e MDX
+          </p>
+        </footer>
       </main>
     </div>
   );

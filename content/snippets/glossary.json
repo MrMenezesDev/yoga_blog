@@ -1,0 +1,49 @@
+{
+  "lacanianConcepts": {
+    "Objeto a": {
+      "definition": "O objeto causa do desejo, aquilo que move o sujeito mas permanece inalcançável.",
+      "references": ["Seminário 11", "Subversão do Sujeito"],
+      "sanskrit_parallel": "Tṛṣṇā (sede insaciável)"
+    },
+    "Grande Outro": {
+      "definition": "A ordem simbólica que precede e estrutura o sujeito.",
+      "references": ["Escritos", "Seminário 5"],
+      "sanskrit_parallel": "Paramparā (tradição mestre-discípulo)"
+    },
+    "Sujeito barrado": {
+      "definition": "O sujeito dividido pela linguagem, marcado pela falta constituinte ($).",
+      "references": ["Subversão do Sujeito"],
+      "sanskrit_parallel": "Ahaṃkāra (ego, falso eu)"
+    }
+  },
+  "sanskritTerms": {
+    "Titiksha": {
+      "devanagari": "तितिक्षा",
+      "transliteration": "titikṣā",
+      "meaning": "Tolerância, capacidade de suportar opostos",
+      "category": "Sādhana (prática espiritual)",
+      "gita_references": ["2.14", "2.15"]
+    },
+    "Moksha": {
+      "devanagari": "मोक्ष",
+      "transliteration": "mokṣa",
+      "meaning": "Libertação, emancipação do ciclo de nascimento e morte",
+      "category": "Puruṣārtha (objetivo da vida)",
+      "related_terms": ["Kaivalya", "Nirvāṇa"]
+    }
+  },
+  "gitaChapters": {
+    "chapter1": {
+      "title": "Arjuna Viṣāda Yoga",
+      "theme": "O desalento de Arjuna",
+      "verses": 47,
+      "key_concepts": ["Viṣāda", "Dharma-saṃkaṭa"]
+    },
+    "chapter2": {
+      "title": "Sāṅkhya Yoga",
+      "theme": "O conhecimento discriminativo e o Yoga da ação",
+      "verses": 72,
+      "key_concepts": ["Sthitaprajña", "Naiṣkarmya", "Buddhi-yoga"]
+    }
+  }
+}
